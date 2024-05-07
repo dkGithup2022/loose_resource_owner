@@ -1,1 +1,19 @@
-spring.application.name=resourceOwnerTest
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: password
+    # hikari cp deadlock ?? ~
+    hikari:
+      maximum-pool-size: 200 #?? pool ??
+      minimum-idle: 20 #?? pool ??
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
